@@ -2,108 +2,172 @@
 
 void debug(CTX *ctx)
 {
-
-    printf("DEBUG -> [ ");
-    for(int i = 0; i < BUFFER_SIZE; i++){
-        int x = ctx->buffer[i];
-        if(x == 2) std::cout << "escargot, ";
-        if(x == 1) std::cout << "frog, ";
-        else std::cout << "none, ";
+    std::queue<int> q = ctx->buffer;
+    printf("[");
+    while (!q.empty() && q.size() > 0)
+    {
+        int x = q.front();
+        std::cout << x << ", ";
+        q.pop();
     }
 
     printf("] \n");
+    printf("frogs: %i, escargot: %i, ethel frogs: %i, ethel escargot: %i, lucy frogs: %i, lucy escargot: %i\n",
+           ctx->frogs, ctx->escargot, ctx->ethelFrog, ctx->ethelEscargot,
+           ctx->lucyFrog, ctx->lucyEscargot);
+}
 
+int total_produced(CTX *ctx)
+{
+    return ctx->frogs + ctx->escargot;
+}
+
+int total_consumed(CTX *ctx)
+{
+    return ctx->ethelEscargot + ctx->ethelFrog +
+           ctx->lucyEscargot + ctx->lucyFrog;
+}
+
+int current_frogs(CTX *ctx)
+{
+    int count = 0;
+    std::queue<int> q = ctx->buffer;
+    while (!q.empty())
+    {
+        if (q.front() == 1)
+            count++;
+        q.pop();
+    }
+    return count;
 }
 
 void *frog_produce(void *ctx)
 {
-    CTX* context = (CTX*)ctx;
-    while (1)
+    CTX *context = (CTX *)ctx;
+    while (total_produced(context) < MAX_ITEMS)
     {
+        sleep(FROG_PRODUCE_WAIT);
         sem_wait(&context->empty);
         pthread_mutex_lock(&context->mutex);
-        printf("starting frog produce...\n");
-        printf("before: ");
-        debug(context);
-        int index_to_add = context->index;
-        context->buffer[index_to_add] = 1;
-        context->index = index_to_add + 1;
-        printf("frog added at index %i\nafter:", index_to_add);
-        debug(context);
-        printf("\n");
+        // start critical section
+        if (total_produced(context) < MAX_ITEMS &&
+            current_frogs(context) < MAX_FROGS)
+        {
+            printf("producing frog...\n");
+            printf("before: ");
+            debug(context);
+            context->buffer.push(1);
+            context->frogs++;
+            printf("after: ");
+            debug(context);
+            printf("\n");
+        }
+        // end critical section
         pthread_mutex_unlock(&context->mutex);
         sem_post(&context->full);
-        sleep(FROG_PRODUCE_WAIT);
     }
 }
 
 void *escargot_produce(void *ctx)
 {
-    CTX* context = (CTX*)ctx;
-    while (1)
+    CTX *context = (CTX *)ctx;
+    while (total_produced(context) < MAX_ITEMS)
     {
+        sleep(ESCARGOT_PRODUCE_WAIT);
         sem_wait(&context->empty);
         pthread_mutex_lock(&context->mutex);
-        printf("starting escargot produce...\n");
-        printf("before: ");
-        debug(context);
-        int index_to_add = context->index;
-        context->buffer[index_to_add] = 2;
-        context->index = index_to_add + 1;
-        printf("escargot added at index %i: ", index_to_add);
-        debug(context);
-        printf("\n");
+        // start critical section
+        if (total_produced(context) < MAX_ITEMS)
+        {
+            printf("produdcing escargot...\n");
+            printf("before: ");
+            debug(context);
+            context->buffer.push(2);
+            context->escargot++;
+            printf("after: ");
+            debug(context);
+            printf("\n");
+        }
+        // end critical section
         pthread_mutex_unlock(&context->mutex);
         sem_post(&context->full);
-        sleep(ESCARGOT_PRODUCE_WAIT);
     }
 }
 
 void *ethel_consume(void *ctx)
 {
-    CTX* context = (CTX*)ctx;
-    while (1)
+    CTX *context = (CTX *)ctx;
+    while (total_consumed(context) <= MAX_ITEMS-5)
     {
         sem_wait(&context->full);
         pthread_mutex_lock(&context->mutex);
-        
-        printf("starting ethel consume...\n");
-        printf("before: ");
-        debug(context);
-        context->index = context->index - 1;
-        int item = context->buffer[context->index];
-        context->buffer[context->index] = 0;
-        printf("ethel consumed at index %i: ", context->index);
-        debug(context);
-        printf("\n");
-        pthread_mutex_unlock(&context->mutex);
-        sem_post(&context->empty);
-        sleep(1);
+        // start critical section
+        if (context->buffer.size() > 0)
+        {
+            printf("ethel is consuming...\n");
+            printf("before: ");
+            debug(context);
+            int item = context->buffer.front();
+            context->buffer.pop();
+            if (item == 1)
+                context->ethelFrog++;
+            if (item == 2)
+                context->ethelEscargot++;
+
+            printf("ethel consumed item %i\nafter: ", item);
+            debug(context);
+            printf("\n");
+            // end critical section
+            pthread_mutex_unlock(&context->mutex);
+            sem_post(&context->empty);
+            sleep(ETHEL_WAIT);
+        }
+        else
+        {
+            pthread_mutex_unlock(&context->mutex);
+            sem_post(&context->empty);
+        }
+
     }
 }
+
 
 void *lucy_consume(void *ctx)
 {
-    CTX* context = (CTX*)ctx;
-    while (1)
+    CTX *context = (CTX *)ctx;
+    while (total_consumed(context) < MAX_ITEMS)
     {
         sem_wait(&context->full);
         pthread_mutex_lock(&context->mutex);
-        printf("starting lucy consume...\n");
-        printf("before: ");
-        debug(context);
-        context->index = context->index - 1;
-        int item = context->buffer[context->index];
-        printf("lucy consumed at index %i: ", context->index);
-        debug(context);
-        printf("\n");
-        pthread_mutex_unlock(&context->mutex);
-        sem_post(&context->empty);
-        sleep(1);
+        // start critical section
+        if (context->buffer.size() > 0)
+        {
+            printf("lucy is consuming...\n");
+            printf("before: ");
+            debug(context);
+            int item = context->buffer.front();
+            context->buffer.pop();
+            if (item == 1)
+                context->lucyFrog++;
+            if (item == 2)
+                context->lucyEscargot++;
+            
+            printf("lucy consumed item %i\nafter: ", item);
+            debug(context);
+            printf("\n");
+            // end critical section
+            pthread_mutex_unlock(&context->mutex);
+            sem_post(&context->empty);
+            sleep(LUCY_WAIT);
+        } else
+        {
+            pthread_mutex_unlock(&context->mutex);
+            sem_post(&context->empty);
+        }
     }
 }
 
-int mizzo() 
+int mizzo()
 {
     // init thread ids and shared data
     pthread_t frog_producer, escargot_producer, ethel_consumer, lucy_consumer;
@@ -113,14 +177,71 @@ int mizzo()
     pthread_mutex_init(&context.mutex, NULL);
 
     // create the producer threads
-    pthread_create(&frog_producer, NULL, frog_produce, &context);
-    pthread_create(&escargot_producer, NULL, escargot_produce, &context);
+    if (pthread_create(&frog_producer, NULL, frog_produce, &context))
+    {
+        printf("\nerror creating frog producer thread\n");
+        exit(1);
+    }
+    if (pthread_create(&escargot_producer, NULL, escargot_produce, &context))
+    {
+        printf("\nerror creating escargot producer thread\n");
+        exit(1);
+    }
 
     // create the consumer threads
-    pthread_create(&ethel_consumer, NULL, ethel_consume, &context);
-    pthread_create(&lucy_consumer, NULL, lucy_consume, &context);
+    if (pthread_create(&ethel_consumer, NULL, ethel_consume, &context))
+    {
+        printf("\nerror creating ethel consumer thread\n");
+        exit(1);
+    }
+    if (pthread_create(&lucy_consumer, NULL, lucy_consume, &context))
+    {
+        printf("\nerror creating lucy consumer thread\n");
+        exit(1);
+    }
 
-    // kill all the threads
+
+    // join all the threads to stop
+    if (pthread_join(frog_producer, NULL))
+    {
+        printf("\n error closing the frog producer thread\n");
+        exit(1);
+    }
+    if (pthread_join(escargot_producer, NULL))
+    {
+        printf("\n error closing the escargot producer thread\n");
+        exit(1);
+    }
+    if (pthread_join(ethel_consumer, NULL))
+    {
+        printf("\n error closing the ethel consumer thread\n");
+        exit(1);
+    }
+    if (pthread_join(lucy_consumer, NULL))
+    {
+        printf("\n error closing the lucy consumer thread\n");
+        exit(1);
+    }
+
+
+    // print out reports
+    printf("production -> frogs: %i, escargot: %i\n",
+           context.frogs, context.escargot);
+    
+    printf("ethel consumption -> frogs: %i, escargot: %i, total: %i\n",
+           context.ethelFrog, context.ethelEscargot, (int)(context.ethelFrog + context.ethelEscargot));
+
+    printf("lucy consumption -> frogs: %i, escargot: %i, total: %i\n",
+           context.lucyFrog, context.lucyEscargot, (int)(context.lucyFrog + context.lucyEscargot));
+    
+    printf("total production:  %i\n",  total_produced(&context));
+
+    printf("total consumption: %i\n", total_consumed(&context));
+
+    //clean everything up
     pthread_exit(NULL);
+    sem_destroy(&context.full);
+    sem_destroy(&context.empty);
+    
     return 1;
 }
