@@ -1,6 +1,6 @@
 CC=g++ # define the compiler to use
 TARGET=mizzo # define the name of the executable
-SOURCES=main.cpp # consumer.cpp producer.cpp queue.cpp
+SOURCES=main.cpp mizzo.cpp
 CFLAGS=-O3 
 LFLAGS=
 
