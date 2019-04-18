@@ -1,0 +1,907 @@
+> ./mizzo –f 600 –e 400 –L 300 –E 500 > test_output.txt
+
+producing frog...
+before: [] 
+after: [1, ] 
+
+produdcing escargot...
+before: [1, ] 
+after: [1, 2, ] 
+
+ethel is consuming...
+before: [1, 2, ] 
+ethel consumed item 1
+after: [2, ] 
+
+lucy is consuming...
+before: [2, ] 
+lucy consumed item 2
+after: [] 
+
+producing frog...
+before: [] 
+after: [1, ] 
+
+produdcing escargot...
+before: [1, ] 
+after: [1, 2, ] 
+
+ethel is consuming...
+before: [1, 2, ] 
+ethel consumed item 1
+after: [2, ] 
+
+lucy is consuming...
+before: [2, ] 
+lucy consumed item 2
+after: [] 
+
+producing frog...
+before: [] 
+after: [1, ] 
+
+lucy is consuming...
+before: [1, ] 
+lucy consumed item 1
+after: [] 
+
+produdcing escargot...
+before: [] 
+after: [2, ] 
+
+ethel is consuming...
+before: [2, ] 
+ethel consumed item 2
+after: [] 
+
+producing frog...
+before: [] 
+after: [1, ] 
+
+lucy is consuming...
+before: [1, ] 
+lucy consumed item 1
+after: [] 
+
+produdcing escargot...
+before: [] 
+after: [2, ] 
+
+ethel is consuming...
+before: [2, ] 
+ethel consumed item 2
+after: [] 
+
+producing frog...
+before: [] 
+after: [1, ] 
+
+produdcing escargot...
+before: [1, ] 
+after: [1, 2, ] 
+
+lucy is consuming...
+before: [1, 2, ] 
+lucy consumed item 1
+after: [2, ] 
+
+ethel is consuming...
+before: [2, ] 
+ethel consumed item 2
+after: [] 
+
+producing frog...
+before: [] 
+after: [1, ] 
+
+produdcing escargot...
+before: [1, ] 
+after: [1, 2, ] 
+
+lucy is consuming...
+before: [1, 2, ] 
+lucy consumed item 1
+after: [2, ] 
+
+ethel is consuming...
+before: [2, ] 
+ethel consumed item 2
+after: [] 
+
+producing frog...
+before: [] 
+after: [1, ] 
+
+produdcing escargot...
+before: [1, ] 
+after: [1, 2, ] 
+
+lucy is consuming...
+before: [1, 2, ] 
+lucy consumed item 1
+after: [2, ] 
+
+ethel is consuming...
+before: [2, ] 
+ethel consumed item 2
+after: [] 
+
+produdcing escargot...
+before: [] 
+after: [2, ] 
+
+producing frog...
+before: [2, ] 
+after: [2, 1, ] 
+
+lucy is consuming...
+before: [2, 1, ] 
+lucy consumed item 2
+after: [1, ] 
+
+ethel is consuming...
+before: [1, ] 
+ethel consumed item 1
+after: [] 
+
+produdcing escargot...
+before: [] 
+after: [2, ] 
+
+producing frog...
+before: [2, ] 
+after: [2, 1, ] 
+
+lucy is consuming...
+before: [2, 1, ] 
+lucy consumed item 2
+after: [1, ] 
+
+ethel is consuming...
+before: [1, ] 
+ethel consumed item 1
+after: [] 
+
+produdcing escargot...
+before: [] 
+after: [2, ] 
+
+lucy is consuming...
+before: [2, ] 
+lucy consumed item 2
+after: [] 
+
+producing frog...
+before: [] 
+after: [1, ] 
+
+ethel is consuming...
+before: [1, ] 
+ethel consumed item 1
+after: [] 
+
+produdcing escargot...
+before: [] 
+after: [2, ] 
+
+lucy is consuming...
+before: [2, ] 
+lucy consumed item 2
+after: [] 
+
+producing frog...
+before: [] 
+after: [1, ] 
+
+ethel is consuming...
+before: [1, ] 
+ethel consumed item 1
+after: [] 
+
+produdcing escargot...
+before: [] 
+after: [2, ] 
+
+lucy is consuming...
+before: [2, ] 
+lucy consumed item 2
+after: [] 
+
+producing frog...
+before: [] 
+after: [1, ] 
+
+ethel is consuming...
+before: [1, ] 
+ethel consumed item 1
+after: [] 
+
+produdcing escargot...
+before: [] 
+after: [2, ] 
+
+lucy is consuming...
+before: [2, ] 
+lucy consumed item 2
+after: [] 
+
+producing frog...
+before: [] 
+after: [1, ] 
+
+ethel is consuming...
+before: [1, ] 
+ethel consumed item 1
+after: [] 
+
+produdcing escargot...
+before: [] 
+after: [2, ] 
+
+lucy is consuming...
+before: [2, ] 
+lucy consumed item 2
+after: [] 
+
+producing frog...
+before: [] 
+after: [1, ] 
+
+ethel is consuming...
+before: [1, ] 
+ethel consumed item 1
+after: [] 
+
+produdcing escargot...
+before: [] 
+after: [2, ] 
+
+lucy is consuming...
+before: [2, ] 
+lucy consumed item 2
+after: [] 
+
+producing frog...
+before: [] 
+after: [1, ] 
+
+ethel is consuming...
+before: [1, ] 
+ethel consumed item 1
+after: [] 
+
+produdcing escargot...
+before: [] 
+after: [2, ] 
+
+lucy is consuming...
+before: [2, ] 
+lucy consumed item 2
+after: [] 
+
+producing frog...
+before: [] 
+after: [1, ] 
+
+ethel is consuming...
+before: [1, ] 
+ethel consumed item 1
+after: [] 
+
+produdcing escargot...
+before: [] 
+after: [2, ] 
+
+lucy is consuming...
+before: [2, ] 
+lucy consumed item 2
+after: [] 
+
+producing frog...
+before: [] 
+after: [1, ] 
+
+ethel is consuming...
+before: [1, ] 
+ethel consumed item 1
+after: [] 
+
+produdcing escargot...
+before: [] 
+after: [2, ] 
+
+producing frog...
+before: [2, ] 
+after: [2, 1, ] 
+
+ethel is consuming...
+before: [2, 1, ] 
+ethel consumed item 2
+after: [1, ] 
+
+lucy is consuming...
+before: [1, ] 
+lucy consumed item 1
+after: [] 
+
+produdcing escargot...
+before: [] 
+after: [2, ] 
+
+producing frog...
+before: [2, ] 
+after: [2, 1, ] 
+
+ethel is consuming...
+before: [2, 1, ] 
+ethel consumed item 2
+after: [1, ] 
+
+lucy is consuming...
+before: [1, ] 
+lucy consumed item 1
+after: [] 
+
+produdcing escargot...
+before: [] 
+after: [2, ] 
+
+ethel is consuming...
+before: [2, ] 
+ethel consumed item 2
+after: [] 
+
+producing frog...
+before: [] 
+after: [1, ] 
+
+lucy is consuming...
+before: [1, ] 
+lucy consumed item 1
+after: [] 
+
+produdcing escargot...
+before: [] 
+after: [2, ] 
+
+ethel is consuming...
+before: [2, ] 
+ethel consumed item 2
+after: [] 
+
+producing frog...
+before: [] 
+after: [1, ] 
+
+lucy is consuming...
+before: [1, ] 
+lucy consumed item 1
+after: [] 
+
+produdcing escargot...
+before: [] 
+after: [2, ] 
+
+ethel is consuming...
+before: [2, ] 
+ethel consumed item 2
+after: [] 
+
+producing frog...
+before: [] 
+after: [1, ] 
+
+lucy is consuming...
+before: [1, ] 
+lucy consumed item 1
+after: [] 
+
+produdcing escargot...
+before: [] 
+after: [2, ] 
+
+ethel is consuming...
+before: [2, ] 
+ethel consumed item 2
+after: [] 
+
+producing frog...
+before: [] 
+after: [1, ] 
+
+lucy is consuming...
+before: [1, ] 
+lucy consumed item 1
+after: [] 
+
+produdcing escargot...
+before: [] 
+after: [2, ] 
+
+producing frog...
+before: [2, ] 
+after: [2, 1, ] 
+
+lucy is consuming...
+before: [2, 1, ] 
+lucy consumed item 2
+after: [1, ] 
+
+ethel is consuming...
+before: [1, ] 
+ethel consumed item 1
+after: [] 
+
+produdcing escargot...
+before: [] 
+after: [2, ] 
+
+producing frog...
+before: [2, ] 
+after: [2, 1, ] 
+
+lucy is consuming...
+before: [2, 1, ] 
+lucy consumed item 2
+after: [1, ] 
+
+ethel is consuming...
+before: [1, ] 
+ethel consumed item 1
+after: [] 
+
+produdcing escargot...
+before: [] 
+after: [2, ] 
+
+lucy is consuming...
+before: [2, ] 
+lucy consumed item 2
+after: [] 
+
+producing frog...
+before: [] 
+after: [1, ] 
+
+ethel is consuming...
+before: [1, ] 
+ethel consumed item 1
+after: [] 
+
+producing frog...
+before: [] 
+after: [1, ] 
+
+produdcing escargot...
+before: [1, ] 
+after: [1, 2, ] 
+
+ethel is consuming...
+before: [1, 2, ] 
+ethel consumed item 1
+after: [2, ] 
+
+lucy is consuming...
+before: [2, ] 
+lucy consumed item 2
+after: [] 
+
+producing frog...
+before: [] 
+after: [1, ] 
+
+produdcing escargot...
+before: [1, ] 
+after: [1, 2, ] 
+
+ethel is consuming...
+before: [1, 2, ] 
+ethel consumed item 1
+after: [2, ] 
+
+lucy is consuming...
+before: [2, ] 
+lucy consumed item 2
+after: [] 
+
+producing frog...
+before: [] 
+after: [1, ] 
+
+produdcing escargot...
+before: [1, ] 
+after: [1, 2, ] 
+
+ethel is consuming...
+before: [1, 2, ] 
+ethel consumed item 1
+after: [2, ] 
+
+lucy is consuming...
+before: [2, ] 
+lucy consumed item 2
+after: [] 
+
+producing frog...
+before: [] 
+after: [1, ] 
+
+produdcing escargot...
+before: [1, ] 
+after: [1, 2, ] 
+
+ethel is consuming...
+before: [1, 2, ] 
+ethel consumed item 1
+after: [2, ] 
+
+lucy is consuming...
+before: [2, ] 
+lucy consumed item 2
+after: [] 
+
+producing frog...
+before: [] 
+after: [1, ] 
+
+produdcing escargot...
+before: [1, ] 
+after: [1, 2, ] 
+
+ethel is consuming...
+before: [1, 2, ] 
+ethel consumed item 1
+after: [2, ] 
+
+lucy is consuming...
+before: [2, ] 
+lucy consumed item 2
+after: [] 
+
+producing frog...
+before: [] 
+after: [1, ] 
+
+produdcing escargot...
+before: [1, ] 
+after: [1, 2, ] 
+
+ethel is consuming...
+before: [1, 2, ] 
+ethel consumed item 1
+after: [2, ] 
+
+lucy is consuming...
+before: [2, ] 
+lucy consumed item 2
+after: [] 
+
+producing frog...
+before: [] 
+after: [1, ] 
+
+ethel is consuming...
+before: [1, ] 
+ethel consumed item 1
+after: [] 
+
+produdcing escargot...
+before: [] 
+after: [2, ] 
+
+lucy is consuming...
+before: [2, ] 
+lucy consumed item 2
+after: [] 
+
+producing frog...
+before: [] 
+after: [1, ] 
+
+ethel is consuming...
+before: [1, ] 
+ethel consumed item 1
+after: [] 
+
+produdcing escargot...
+before: [] 
+after: [2, ] 
+
+lucy is consuming...
+before: [2, ] 
+lucy consumed item 2
+after: [] 
+
+producing frog...
+before: [] 
+after: [1, ] 
+
+produdcing escargot...
+before: [1, ] 
+after: [1, 2, ] 
+
+ethel is consuming...
+before: [1, 2, ] 
+ethel consumed item 1
+after: [2, ] 
+
+lucy is consuming...
+before: [2, ] 
+lucy consumed item 2
+after: [] 
+
+produdcing escargot...
+before: [] 
+after: [2, ] 
+
+producing frog...
+before: [2, ] 
+after: [2, 1, ] 
+
+ethel is consuming...
+before: [2, 1, ] 
+ethel consumed item 2
+after: [1, ] 
+
+lucy is consuming...
+before: [1, ] 
+lucy consumed item 1
+after: [] 
+
+produdcing escargot...
+before: [] 
+after: [2, ] 
+
+producing frog...
+before: [2, ] 
+after: [2, 1, ] 
+
+ethel is consuming...
+before: [2, 1, ] 
+ethel consumed item 2
+after: [1, ] 
+
+lucy is consuming...
+before: [1, ] 
+lucy consumed item 1
+after: [] 
+
+produdcing escargot...
+before: [] 
+after: [2, ] 
+
+producing frog...
+before: [2, ] 
+after: [2, 1, ] 
+
+ethel is consuming...
+before: [2, 1, ] 
+ethel consumed item 2
+after: [1, ] 
+
+lucy is consuming...
+before: [1, ] 
+lucy consumed item 1
+after: [] 
+
+produdcing escargot...
+before: [] 
+after: [2, ] 
+
+producing frog...
+before: [2, ] 
+after: [2, 1, ] 
+
+ethel is consuming...
+before: [2, 1, ] 
+ethel consumed item 2
+after: [1, ] 
+
+lucy is consuming...
+before: [1, ] 
+lucy consumed item 1
+after: [] 
+
+produdcing escargot...
+before: [] 
+after: [2, ] 
+
+producing frog...
+before: [2, ] 
+after: [2, 1, ] 
+
+lucy is consuming...
+before: [2, 1, ] 
+lucy consumed item 2
+after: [1, ] 
+
+ethel is consuming...
+before: [1, ] 
+ethel consumed item 1
+after: [] 
+
+produdcing escargot...
+before: [] 
+after: [2, ] 
+
+producing frog...
+before: [2, ] 
+after: [2, 1, ] 
+
+lucy is consuming...
+before: [2, 1, ] 
+lucy consumed item 2
+after: [1, ] 
+
+ethel is consuming...
+before: [1, ] 
+ethel consumed item 1
+after: [] 
+
+produdcing escargot...
+before: [] 
+after: [2, ] 
+
+ethel is consuming...
+before: [2, ] 
+ethel consumed item 2
+after: [] 
+
+producing frog...
+before: [] 
+after: [1, ] 
+
+lucy is consuming...
+before: [1, ] 
+lucy consumed item 1
+after: [] 
+
+produdcing escargot...
+before: [] 
+after: [2, ] 
+
+ethel is consuming...
+before: [2, ] 
+ethel consumed item 2
+after: [] 
+
+producing frog...
+before: [] 
+after: [1, ] 
+
+lucy is consuming...
+before: [1, ] 
+lucy consumed item 1
+after: [] 
+
+produdcing escargot...
+before: [] 
+after: [2, ] 
+
+producing frog...
+before: [2, ] 
+after: [2, 1, ] 
+
+lucy is consuming...
+before: [2, 1, ] 
+lucy consumed item 2
+after: [1, ] 
+
+ethel is consuming...
+before: [1, ] 
+ethel consumed item 1
+after: [] 
+
+produdcing escargot...
+before: [] 
+after: [2, ] 
+
+producing frog...
+before: [2, ] 
+after: [2, 1, ] 
+
+lucy is consuming...
+before: [2, 1, ] 
+lucy consumed item 2
+after: [1, ] 
+
+ethel is consuming...
+before: [1, ] 
+ethel consumed item 1
+after: [] 
+
+produdcing escargot...
+before: [] 
+after: [2, ] 
+
+producing frog...
+before: [2, ] 
+after: [2, 1, ] 
+
+lucy is consuming...
+before: [2, 1, ] 
+lucy consumed item 2
+after: [1, ] 
+
+ethel is consuming...
+before: [1, ] 
+ethel consumed item 1
+after: [] 
+
+produdcing escargot...
+before: [] 
+after: [2, ] 
+
+producing frog...
+before: [2, ] 
+after: [2, 1, ] 
+
+lucy is consuming...
+before: [2, 1, ] 
+lucy consumed item 2
+after: [1, ] 
+
+ethel is consuming...
+before: [1, ] 
+ethel consumed item 1
+after: [] 
+
+produdcing escargot...
+before: [] 
+after: [2, ] 
+
+producing frog...
+before: [2, ] 
+after: [2, 1, ] 
+
+lucy is consuming...
+before: [2, 1, ] 
+lucy consumed item 2
+after: [1, ] 
+
+ethel is consuming...
+before: [1, ] 
+ethel consumed item 1
+after: [] 
+
+producing frog...
+before: [] 
+after: [1, ] 
+
+produdcing escargot...
+before: [1, ] 
+after: [1, 2, ] 
+
+lucy is consuming...
+before: [1, 2, ] 
+lucy consumed item 1
+after: [2, ] 
+
+produdcing escargot...
+before: [2, ] 
+after: [2, 2, ] 
+
+producing frog...
+before: [2, 2, ] 
+after: [2, 2, 1, ] 
+
+lucy is consuming...
+before: [2, 2, 1, ] 
+lucy consumed item 2
+after: [2, 1, ] 
+
+lucy is consuming...
+before: [2, 1, ] 
+lucy consumed item 2
+after: [1, ] 
+
+lucy is consuming...
+before: [1, ] 
+lucy consumed item 1
+after: [] 
+
+production -> frogs: 50, escargot: 50
+ethel consumption -> frogs: 31, escargot: 17, total: 48
+lucy consumption -> frogs: 19, escargot: 33, total: 52
+total production:  100
+total consumption: 100

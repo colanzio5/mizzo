@@ -3,11 +3,11 @@
  * CS570 - OPERATING SYSTEMS
  * CSSC1070
  * ASSIGNMENT FOUR
- * 4/10/19
+ * 4/16/19
  */
 #include "mizzo.h"
 
-int main()
+int main(int argc, char* argv[])
 {
-    return mizzo();
+    return mizzo(argc, argv);
 }
