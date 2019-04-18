@@ -1,5 +1,7 @@
 #include "mizzo.h"
 
+// helper function to show the current queue of 
+// candys waiting to be consumed
 void debug(CTX *ctx)
 {
     std::queue<int> q = ctx->buffer;
@@ -13,16 +15,26 @@ void debug(CTX *ctx)
     printf("] \n");
 }
 
+
+// helper function to determine how many candys have
+// been produced
 int total_produced(CTX *ctx)
 {
     return ctx->frogs + ctx->escargot;
 }
 
+// helper function to determine how many candys have
+// been consumed
 int total_consumed(CTX *ctx)
 {
     return ctx->ethelEscargot + ctx->ethelFrog + ctx->lucyEscargot + ctx->lucyFrog;
 }
 
+/**
+ * counts the current number of frogs in 
+ * the queue that waits for consumers
+ * used to make sure num_frogs < max_frogs
+ */
 int current_frogs(CTX *ctx)
 {
     int count = 0;
@@ -36,6 +48,12 @@ int current_frogs(CTX *ctx)
     return count;
 }
 
+/**
+ * produces a frog if there are three
+ * or less frogs in the buffer
+ * if frog is produces, pushes new
+ * candy onto buffer in ctx
+ */
 void *frog_produce(void *ctx)
 {
     CTX *context = (CTX *)ctx;
@@ -63,6 +81,11 @@ void *frog_produce(void *ctx)
     }
 }
 
+/**
+ * function to produce an escargot 
+ * if escargot produced, candy is
+ * pushed on buffer in ctx
+ */
 void *escargot_produce(void *ctx)
 {
     CTX *context = (CTX *)ctx;
@@ -89,6 +112,13 @@ void *escargot_produce(void *ctx)
     }
 }
 
+/**
+ * the ethel consumer function
+ * consumes a candy from the ctx
+ * queue if available
+ * and waits ETHEL_WAIT time 
+ * after consuming
+ */
 void *ethel_consume(void *ctx)
 {
     CTX *context = (CTX *)ctx;
@@ -125,6 +155,14 @@ void *ethel_consume(void *ctx)
     }
 }
 
+
+/**
+ * the lucy consumer function
+ * consumes a candy from the ctx
+ * queue if available
+ * and waits LUCY_WAIT time 
+ * after consuming
+ */
 void *lucy_consume(void *ctx)
 {
     CTX *context = (CTX *)ctx;
@@ -161,6 +199,15 @@ void *lucy_consume(void *ctx)
     }
 }
 
+/**
+ * take in argc and argv
+ * parse produce and consume wait times 
+ * set proper variables in ctx
+ * -E - ethel consume wait
+ * -L - lucy consume wait
+ * -f - frog produce wait
+ * -e - escargot produce wait
+ */
 CTX init_args(int argc, char **argv, CTX ctx)
 {
     int opt = -1;
@@ -187,10 +234,11 @@ CTX init_args(int argc, char **argv, CTX ctx)
     return ctx;
 }
 
+// run the producer consumer simulation with args passed
+// in via argc, argv
 int mizzo(int argc, char *argv[])
 {
     CTX context;
-
     // load in args from argc, argv
     context = init_args(argc, argv, context);
 
